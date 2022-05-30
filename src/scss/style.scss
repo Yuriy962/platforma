@@ -1029,15 +1029,15 @@ h6{
     }
     @media (max-width: 1250px){
         &-arrow{
-            top: 90%;
+            // top: 90%;
             &-img{
                 width: 110px;
             }
             &--prev{
-                left: 20px;
+                left: 5px;
             }
             &--next{
-                right: 20px;
+                right: 5px;
             }
         }
     }
@@ -1101,7 +1101,7 @@ h6{
         }
     } 
     &-disabled{
-        .slider-arrow-img, .slider-arrow-path{
+        path{
             fill: #E8E8E8;
         }
     }
