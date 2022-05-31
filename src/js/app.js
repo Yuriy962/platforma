@@ -36,9 +36,9 @@ window.addEventListener("DOMContentLoaded", () => {
     // "</button>",
     nextArrow:
       '<button type="button" class="slick-next slider-arrow slider-arrow--next">' +
-        '<svg width="22" height="38" viewBox="0 0 22 38" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-          '<path d="M0.600391 5.9998L13.6004 18.9998L0.600391 31.9998L3.20039 37.1998L21.4004 18.9998L3.20039 0.799805L0.600391 5.9998Z" fill="#FFDF2D"/>' +
-        "</svg>" +
+      '<svg width="22" height="38" viewBox="0 0 22 38" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<path d="M0.600391 5.9998L13.6004 18.9998L0.600391 31.9998L3.20039 37.1998L21.4004 18.9998L3.20039 0.799805L0.600391 5.9998Z" fill="#FFDF2D"/>' +
+      "</svg>" +
       "</button>",
     // '<button type="button" class="slick-next slider-arrow slider-arrow--next">' +
     //   '<svg class="slider-arrow-img" viewBox="0 0 133 16" fill="none" xmlns="http://www.w3.org/2000/svg" >' +
@@ -57,7 +57,81 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   $('input[type="tel"]').inputmask("+7 (999) 999-99-99");
 
+  const EMAIL_REGEXP =
+    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+  const PHONE_REGEXP = /\+[7] \([0-9]{3}\) [0-9]{3}-[0-9]{2}-[0-9]{2}/;
+  // Валидация формы
+  function validateForm(id) {
+    let name = document.forms[id]["name"];
+    if (name.value === "") {
+      $(`#${id} .form-name .form__message--invalid`).css("display", "flex");
+      name.classList.add("form__input--invalid");
+      setTimeout(() => {
+        $(`#${id} .form-name .form__message--invalid`).hide();
+        name.classList.remove("form__input--invalid");
+      }, 2000);
+    } else {
+      $(`#${id} .form-name .form__message--valid`).css("display", "flex");
+      setTimeout(() => {
+        $(`#${id} .form-name .form__message--valid`).hide();
+      }, 2000);
+      return false;
+    }
+    let company = document.forms[id]["company"];
+    if (company.value === "") {
+      $(`#${id} .form-company .form__message--invalid`).css("display", "flex");
+      company.classList.add("form__input--invalid");
+      setTimeout(() => {
+        $(`#${id} .form-company .form__message--invalid`).hide();
+        company.classList.remove("form__input--invalid");
+      }, 2000);
+    } else {
+      $(`#${id} .form-company .form__message--valid`).css("display", "flex");
+      setTimeout(() => {
+        $(`#${id} .form-company .form__message--valid`).hide();
+      }, 2000);
+      return false;
+    }
+    let phone = document.forms[id]["tel"];
+    if (phone.value === "" && !validateInput(PHONE_REGEXP, phone.value)) {
+      $(`#${id} .form-phone .form__message--invalid`).css("display", "flex");
+      phone.classList.add("form__input--invalid");
+      setTimeout(() => {
+        $(`#${id} .form-phone .form__message--invalid`).hide();
+        phone.classList.remove("form__input--invalid");
+      }, 2000);
+    } else {
+      $(`#${id} .form-phone .form__message--valid`).css("display", "flex");
+      setTimeout(() => {
+        $(`#${id} .form-phone .form__message--valid`).hide();
+      }, 2000);
+      return false;
+    }
+    let email = document.forms[id]["email"];
+    if (email.value === "" && !validateInput(EMAIL_REGEXP, email.value)) {
+      $(`#${id} .form-email .form__message--invalid`).css("display", "flex");
+      email.classList.add("form__input--invalid");
+      setTimeout(() => {
+        $(`#${id} .form-email .form__message--invalid`).hide();
+        email.classList.remove("form__input--invalid");
+      }, 2000);
+    } else {
+      $(`#${id} .form-email .form__message--valid`).css("display", "flex");
+      setTimeout(() => {
+        $(`#${id} .form-email .form__message--valid`).hide();
+      }, 2000);
+      return false;
+    }
+  }
 
-  // const elements = document.querySelectorAll('.animate__animated');
-  // if(elements[0].scr)
+  // сравнение введенного значения с регулярным выражением
+  function validateInput(regexp, value) {
+    return regexp.test(value);
+  }
+
+  $("form").on("submit", function (e) {
+    e.preventDefault();
+    validateForm(this.id);
+    // $("form").trigger("reset");
+  });
 });

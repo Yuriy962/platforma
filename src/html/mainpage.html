@@ -9,7 +9,7 @@
                 <h1 class="title title--big promo__title">
                     презентация нового онлайн-сервиса &laquo;Платформа&raquo; для надежной инвестиции в недвижимость
                 </h1>
-                <a href="#form-befirst"
+                <a href="#form-1"
                     class="btn btn--transp promo__link d-block d-lg-none  animate__fadeIn wow"
                     data-wow-duration="1s">
                     как стать участником презентации?
@@ -17,10 +17,10 @@
             </div>
             <div class="promo__content">
                 <div class="promo__info d-lg-flex d-none position-relative animate__fadeIn wow" data-wow-duration="1s">
-                    <a href="#form-befirst" class="btn btn--transp promo__link d-none d-xl-block">
+                    <a href="#form-1" class="btn btn--transp promo__link d-none d-xl-block">
                         как стать участником презентации?
                     </a>
-                    <a href="#form-demo" class="btn promo__btn">
+                    <a href="#form-2" class="btn promo__btn">
                        Зарегистрируйтесь
                     </a>
                 </div>
@@ -31,7 +31,7 @@
             <div
                 class="promo__content promo__content--mobile d-flex d-lg-none 
                 animate__fadeIn wow" data-wow-duration="1s">
-                <a href="#form-demo" class="btn">
+                <a href="#form-2" class="btn">
                     Зарегистрируйтесь
                 </a>
             </div>
@@ -74,23 +74,41 @@
         <div class="container-fluid p-0">
             <div class="form-container__inner">
                 <div class="form-block">
-                    <form action="" class="form" method="post" id="form-befirst">
+                    <form action="" class="form" method="post" id="form-1">
                         <h2 class="title title--small">только у участников онлайн презентации будет доступ к
                             <span>бесплатной</span>
                             версии платформы*</h2>
                         <p class="text text-small ttu">*Планирует запуститься 15 июня 2022 года</p>
                         <div class="form-row">
-                            <input class="form__input text-small" type="text" name="name" id="" placeholder="Имя">
-                            <input class="form__input text-small" type="text" name="company" id=""
-                                placeholder="Компания">
+                            <div class="form__item form-name">
+                                <span class="form__message form__message--valid">Данные введены корректно</span>
+                                <span class="form__message form__message--invalid">Пожалуйста введите корректные
+                                    данные</span>
+                                <input class="form__input text-small" type="text" name="name" placeholder="Имя">
+                            </div>
+                            <div class="form__item form-company">
+                                <span class="form__message form__message--valid">Данные введены корректно</span>
+                                <span class="form__message form__message--invalid">Пожалуйста введите корректные
+                                    данные</span>
+                                <input class="form__input text-small" type="text" name="company" placeholder="Компания">
+                            </div>
                         </div>
                         <div class="form-row">
-                            <input class="form__input text-small" type="tel" name="tel" id=""
-                                placeholder="Номер телефона">
-                            <input class="form__input text-small" type="email" name="email" id="" placeholder="Почта">
+                            <div class="form__item form-phone">
+                                <span class="form__message form__message--valid">Данные введены корректно</span>
+                                <span class="form__message form__message--invalid">Пожалуйста введите корректные
+                                    данные</span>
+                                <input class="form__input text-small" type="tel" name="tel" placeholder="Номер телефона">
+                            </div>
+                            <div class="form__item form-email">
+                                <span class="form__message form__message--valid">Данные введены корректно</span>
+                                <span class="form__message form__message--invalid">Пожалуйста введите корректные
+                                    данные</span>
+                                <input class="form__input text-small" type="email" name="email" placeholder="Почта">
+                            </div>
                         </div>
                         <label class="form-label ttu">
-                            <input type="checkbox" name="checkbox" id="">
+                            <input type="checkbox" name="checkbox">
                             <span>Даю согласие на обработку своих персональных данных</span>
                         </label>
                         <input class="btn form__btn" type="submit" value="Отправить заявку">
@@ -122,7 +140,7 @@
                         </h2>
                     </div>
                     <!-- <div class="section--grid__item d-none d-lg-flex">
-                        <a href="#form-demo" class="btn btn--small">
+                        <a href="#form-2" class="btn btn--small">
                             бета-версия
                         </a>
                     </div> -->
@@ -147,7 +165,7 @@
                         </div>
                         <div class="slider-main__block slider-main__block--pic">
                             <img src="assets/img/slider/01.svg" alt="Онлайн продажа недвижимости">
-                            <a href="#form-demo" class="demo__btn btn btn--small d-flex d-md-none">
+                            <a href="#form-2" class="demo__btn btn btn--small d-flex d-md-none">
                                 бета-версия
                             </a>
                         </div>
@@ -168,7 +186,7 @@
                         </div>
                         <div class="slider-main__block slider-main__block--pic">
                             <img src="assets/img/slider/02.svg" alt="Доступ к базе потенциальных инвесторов">
-                            <a href="#form-demo" class="demo__btn btn btn--small d-flex d-md-none">
+                            <a href="#form-2" class="demo__btn btn btn--small d-flex d-md-none">
                                 бета-версия
                             </a>
                         </div>
@@ -189,7 +207,7 @@
                         </div>
                         <div class="slider-main__block slider-main__block--pic">
                             <img src="assets/img/slider/03.svg" alt="Коллективные инвестиции">
-                            <a href="#form-demo" class="demo__btn btn btn--small d-flex d-md-none">
+                            <a href="#form-2" class="demo__btn btn btn--small d-flex d-md-none">
                                 бета-версия
                             </a>
                         </div>
@@ -211,7 +229,7 @@
                         </div>
                         <div class="slider-main__block slider-main__block--pic">
                             <img src="assets/img/slider/04.svg" alt="Кросс-региональные сделки.">
-                            <a href="#form-demo" class="demo__btn btn btn--small d-flex d-md-none">
+                            <a href="#form-2" class="demo__btn btn btn--small d-flex d-md-none">
                                 бета-версия
                             </a>
                         </div>
@@ -233,7 +251,7 @@
                         </div>
                         <div class="slider-main__block slider-main__block--pic">
                             <img src="assets/img/slider/05.svg" alt="Готовая аренда бизнеса">
-                            <a href="#form-demo" class="demo__btn btn btn--small d-flex d-md-none">
+                            <a href="#form-2" class="demo__btn btn btn--small d-flex d-md-none">
                                 бета-версия
                             </a>
                         </div>
@@ -256,7 +274,7 @@
                         </div>
                         <div class="slider-main__block slider-main__block--pic">
                             <img src="assets/img/slider/06.svg" alt="Федеральные арендаторы.">
-                            <a href="#form-demo" class="demo__btn btn btn--small d-flex d-md-none">
+                            <a href="#form-2" class="demo__btn btn btn--small d-flex d-md-none">
                                 бета-версия
                             </a>
                         </div>
@@ -281,7 +299,7 @@
                         <li>и другие</li>
                     </ul>
                     <p class="text d-none d-md-block">Подай заявку и будь первым к этим бесценным данным!</p>
-                    <a href="#form-demo" class="btn analytics__btn d-none d-md-block">
+                    <a href="#form-2" class="btn analytics__btn d-none d-md-block">
                         Хочу бета-версию
                     </a>
                 </div>
@@ -306,19 +324,36 @@
                         презентации!</p>
                 </div>
                 <div class="form-block">
-                    <form action="" class="form" method="post" id="form-demo">
+                    <form action="" class="form" method="post" id="form-2">
                         <div class="form-row">
-                            <input class="form__input text-small" type="text" name="name" id="" placeholder="Имя">
-                            <input class="form__input text-small" type="text" name="company" id=""
-                                placeholder="Компания">
+                            <div class="form__item form-name">
+                                <span class="form__message form__message--valid">Данные введены корректно</span>
+                                <span class="form__message form__message--invalid">Пожалуйста введите корректные данные</span>
+                                <input class="form__input text-small" type="text" name="name" placeholder="Имя">
+                            </div>
+                            <div class="form__item form-company">
+                                <span class="form__message form__message--valid">Данные введены корректно</span>
+                                <span class="form__message form__message--invalid">Пожалуйста введите корректные данные</span>
+                                <input class="form__input text-small" type="text" name="company" placeholder="Компания">
+                            </div>
                         </div>
                         <div class="form-row">
-                            <input class="form__input text-small" type="tel" name="tel" id=""
-                                placeholder="Номер телефона">
-                            <input class="form__input text-small" type="email" name="email" id="" placeholder="Почта">
+                            <div class="form__item form-phone">
+                                <span class="form__message form__message--valid">Данные введены корректно</span>
+                                <span class="form__message form__message--invalid">Пожалуйста введите корректные данные</span>
+                                <input class="form__input text-small" type="tel" name="tel" placeholder="Номер телефона">
+                            </div>
+                            <div class="form__item form-email">
+                                <span class="form__message form__message--valid">Данные введены корректно</span>
+                                <span class="form__message form__message--invalid">Пожалуйста введите корректные данные</span>
+                                <input class="form__input text-small" type="email" name="email" placeholder="Почта">
+                            </div>
                         </div>
                         <label class="form-label ttu">
-                            <input type="checkbox" name="checkbox" id="">
+                            <span class="form__message form__message--valid">Данные введены корректно</span>
+                            <span class="form__message form__message--invalid">Пожалуйста введите корректные
+                                данные</span>
+                            <input type="checkbox" name="checkbox">
                             <span>Даю согласие на обработку своих персональных данных</span>
                         </label>
                         <input class="btn form__btn" type="submit" value="Отправить заявку">
