@@ -60,78 +60,39 @@ window.addEventListener("DOMContentLoaded", () => {
   const EMAIL_REGEXP =
     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
   const PHONE_REGEXP = /\+[7] \([0-9]{3}\) [0-9]{3}-[0-9]{2}-[0-9]{2}/;
+
   // Валидация формы
-  function validateForm(id) {
-    let name = document.forms[id]["name"];
-    if (name.value === "") {
-      $(`#${id} .form-name .form__message--invalid`).css("display", "flex");
-      name.classList.add("form__input--invalid");
-      setTimeout(() => {
-        $(`#${id} .form-name .form__message--invalid`).hide();
-        name.classList.remove("form__input--invalid");
-      }, 2000);
+  function validateInput(id, inputName, regexp) {
+    let input = document.forms[id][inputName];
+    if(input){
+      if (input.value === "" && !validateValue(regexp, input.type, input.value)) {
+        $(`#${id} .form-${inputName} .form__message--invalid`).show();
+        $(`#${id} .form-${inputName} .form__message--valid`).hide();
+      } else {
+        $(`#${id} .form-${inputName} .form__message--invalid`).hide();
+        $(`#${id} .form-${inputName} .form__message--valid`).show();
+      }
     } else {
-      $(`#${id} .form-name .form__message--valid`).css("display", "flex");
-      setTimeout(() => {
-        $(`#${id} .form-name .form__message--valid`).hide();
-      }, 2000);
-      return false;
-    }
-    let company = document.forms[id]["company"];
-    if (company.value === "") {
-      $(`#${id} .form-company .form__message--invalid`).css("display", "flex");
-      company.classList.add("form__input--invalid");
-      setTimeout(() => {
-        $(`#${id} .form-company .form__message--invalid`).hide();
-        company.classList.remove("form__input--invalid");
-      }, 2000);
-    } else {
-      $(`#${id} .form-company .form__message--valid`).css("display", "flex");
-      setTimeout(() => {
-        $(`#${id} .form-company .form__message--valid`).hide();
-      }, 2000);
-      return false;
-    }
-    let phone = document.forms[id]["tel"];
-    if (phone.value === "" && !validateInput(PHONE_REGEXP, phone.value)) {
-      $(`#${id} .form-phone .form__message--invalid`).css("display", "flex");
-      phone.classList.add("form__input--invalid");
-      setTimeout(() => {
-        $(`#${id} .form-phone .form__message--invalid`).hide();
-        phone.classList.remove("form__input--invalid");
-      }, 2000);
-    } else {
-      $(`#${id} .form-phone .form__message--valid`).css("display", "flex");
-      setTimeout(() => {
-        $(`#${id} .form-phone .form__message--valid`).hide();
-      }, 2000);
-      return false;
-    }
-    let email = document.forms[id]["email"];
-    if (email.value === "" && !validateInput(EMAIL_REGEXP, email.value)) {
-      $(`#${id} .form-email .form__message--invalid`).css("display", "flex");
-      email.classList.add("form__input--invalid");
-      setTimeout(() => {
-        $(`#${id} .form-email .form__message--invalid`).hide();
-        email.classList.remove("form__input--invalid");
-      }, 2000);
-    } else {
-      $(`#${id} .form-email .form__message--valid`).css("display", "flex");
-      setTimeout(() => {
-        $(`#${id} .form-email .form__message--valid`).hide();
-      }, 2000);
+      console.log(`Поля '${inputName}' нет в этой форме!`);
       return false;
     }
   }
 
+
   // сравнение введенного значения с регулярным выражением
-  function validateInput(regexp, value) {
+  function validateValue(regexp = '', inputType, value) {
+    if (inputType === 'text'){
+      return false;
+    } 
     return regexp.test(value);
   }
 
   $("form").on("submit", function (e) {
     e.preventDefault();
-    validateForm(this.id);
+    validateInput(this.id, "email", EMAIL_REGEXP);
+    validateInput(this.id, "tel", PHONE_REGEXP);
+    validateInput(this.id, "name");
+    validateInput(this.id, "company");
     // $("form").trigger("reset");
   });
 });

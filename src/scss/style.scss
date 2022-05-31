@@ -742,7 +742,7 @@ h6{
     &__message{
         position: absolute;
         // display: none;
-        top: -25px;
+        max-height: 15px;
         padding: 2px 15px;
         padding-left: 0px;
         display: none;
@@ -758,14 +758,14 @@ h6{
             background-size: 13px 13px;
         }
         &--valid{
+            top: -20px;
             color: #00FF19;
             &:before{
                 background: url('../assets/icons/check.svg');
             }
         }
         &--invalid{
-            top: 0;
-            bottom: -80px;
+            bottom: -20px;
             color: #FF0000;
             &:before{
                 background: url('../assets/icons/exclamation.svg');
