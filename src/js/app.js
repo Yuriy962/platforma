@@ -79,7 +79,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // сравнение введенного значения с регулярным выражением
+  // сравнение введенного значения в инпуте с регулярным выражением
   function validateValue(regexp = '', inputType, value) {
     if (inputType === 'text'){
       return false;
@@ -87,6 +87,7 @@ window.addEventListener("DOMContentLoaded", () => {
     return regexp.test(value);
   }
 
+  // симуляция отправки формы
   $("form").on("submit", function (e) {
     e.preventDefault();
     validateInput(this.id, "email", EMAIL_REGEXP);
