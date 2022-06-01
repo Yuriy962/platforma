@@ -62,10 +62,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const PHONE_REGEXP = /\+[7] \([0-9]{3}\) [0-9]{3}-[0-9]{2}-[0-9]{2}/;
 
   // Валидация формы
-  function validateInput(id, inputName, regexp) {
+  let validateInput = (id, inputName, regexp) => {
     let input = document.forms[id][inputName];
     if(input){
-      if (input.value === "" && !validateValue(regexp, input.type, input.value)) {
+      if (input.value === "" || !validateValue(input.type, input.value, regexp)) {
         $(`#${id} .form-${inputName} .form__message--invalid`).show();
         $(`#${id} .form-${inputName} .form__message--valid`).hide();
       } else {
@@ -80,10 +80,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
   // сравнение введенного значения в инпуте с регулярным выражением
-  function validateValue(regexp = '', inputType, value) {
-    if (inputType === 'text'){
-      return false;
-    } 
+  let validateValue = (inputType, value, regexp = "") => {
+    if (inputType === "text") {
+      return true;
+    }
     return regexp.test(value);
   }
 
