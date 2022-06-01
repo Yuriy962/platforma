@@ -66,18 +66,17 @@ window.addEventListener("DOMContentLoaded", () => {
     let input = document.forms[id][inputName];
     if(input){
       if (input.value === "" || !validateValue(input.type, input.value, regexp)) {
-        $(`#${id} .form-${inputName} .form__message--invalid`).show();
-        $(`#${id} .form-${inputName} .form__message--valid`).hide();
+        $(`#${id} .form-${inputName} .form__message--invalid`).css('display', 'flex');
+        $(`#${id} .form-${inputName} .form__message--valid`).css('display', 'none');
       } else {
-        $(`#${id} .form-${inputName} .form__message--invalid`).hide();
-        $(`#${id} .form-${inputName} .form__message--valid`).show();
+        $(`#${id} .form-${inputName} .form__message--invalid`).css('display', 'none');
+        $(`#${id} .form-${inputName} .form__message--valid`).css('display', 'flex');
       }
     } else {
       console.log(`Поля '${inputName}' нет в этой форме!`);
       return false;
     }
   }
-
 
   // сравнение введенного значения в инпуте с регулярным выражением
   let validateValue = (inputType, value, regexp = "") => {
