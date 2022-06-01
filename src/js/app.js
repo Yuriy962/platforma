@@ -57,8 +57,8 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   $('input[type="tel"]').inputmask("+7 (999) 999-99-99");
 
-  const EMAIL_REGEXP =
-    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+  const EMAIL_REGEXP = /^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
+    ///^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu
   const PHONE_REGEXP = /\+[7] \([0-9]{3}\) [0-9]{3}-[0-9]{2}-[0-9]{2}/;
 
   // Валидация формы
@@ -78,6 +78,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  
   // сравнение введенного значения в инпуте с регулярным выражением
   let validateValue = (inputType, value, regexp = "") => {
     if (inputType === "text") {
